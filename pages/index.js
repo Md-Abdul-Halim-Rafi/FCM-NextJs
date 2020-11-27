@@ -1,7 +1,13 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
+import { firebaseCloudMessaging } from '../utils/webPush'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  useEffect(() => {
+    firebaseCloudMessaging.init()
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,7 +17,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Next.js!</a> with <strong>firebase</strong> messaging
         </h1>
 
         <p className={styles.description}>
